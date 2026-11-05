@@ -44,6 +44,8 @@ where the config expects it.
 
 ## Skills here
 
-| ID | Used by | Purpose |
-| --- | --- | --- |
-| `architecture-review` | bornnobody | Module and kind boundaries, the import matrix, and the architecture guard tests |
+None yet. The first candidate, `architecture-review`, is deferred: the
+generated architecture page in the bornnobody repository
+(`docs/architecture.generated.md`, from `docs/tools/architecture-map.py`) is
+the input it will read. The earlier draft is in this repository's history
+(commit `156c696`).
