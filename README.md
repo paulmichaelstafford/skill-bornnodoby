@@ -44,8 +44,11 @@ where the config expects it.
 
 ## Skills here
 
-None yet. The first candidate, `architecture-review`, is deferred: the
-generated architecture page in the bornnobody repository
-(`docs/architecture.generated.md`, from `docs/tools/architecture-map.py`) is
-the input it will read. The earlier draft is in this repository's history
-(commit `156c696`).
+| ID | Used by | Purpose |
+| --- | --- | --- |
+| `pr-description` | bornnobody | Build a PR title and body from the branch diff: what, why, the Realism line, the verification actually run, and every guarded file touched |
+
+The earlier `architecture-review` draft is deferred; the generated architecture
+page in the bornnobody repository (`docs/architecture.generated.md`, from
+`docs/tools/architecture-map.py`) is the input it will read. That draft is in
+this repository's history (commit `156c696`).
