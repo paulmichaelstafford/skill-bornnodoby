@@ -48,6 +48,8 @@ where the config expects it.
 | --- | --- | --- |
 | `pr-description` | bornnobody | Build a PR title and body from the branch diff: what, why, the Realism line, the verification actually run, and every guarded file touched |
 | `guard-change-review` | bornnobody | Read the protected-file diff and return PASS or ESCALATE: did this tighten the rules, or loosen them |
+| `code-quality-review` | bornnobody | detekt, ktlint, the style guards, suppressions, dead code, naming and comment rules |
+| `test-review` | bornnobody | Changed behaviour has a test, coverage of the changed lines, BDD conventions, no test deleted or disabled |
 
 The earlier `architecture-review` draft is deferred; the generated architecture
 page in the bornnobody repository (`docs/architecture.generated.md`, from
