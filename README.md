@@ -47,6 +47,7 @@ where the config expects it.
 | ID | Used by | Purpose |
 | --- | --- | --- |
 | `pr-description` | bornnobody | Build a PR title and body from the branch diff: what, why, the Realism line, the verification actually run, and every guarded file touched |
+| `guard-change-review` | bornnobody | Read the protected-file diff and return PASS or ESCALATE: did this tighten the rules, or loosen them |
 
 The earlier `architecture-review` draft is deferred; the generated architecture
 page in the bornnobody repository (`docs/architecture.generated.md`, from
