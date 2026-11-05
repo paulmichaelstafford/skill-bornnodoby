@@ -16,12 +16,17 @@ Read-only. Report findings; never fix, suppress or approve.
 
 ## Run
 
+If the environment gives you a shell:
+
 ```sh
 ./gradlew detekt ktlint
 ./gradlew :sim-scenario:test \
   --tests '*CodeStyleGuardTest' \
   --tests '*ExceptionsGuardTest'
 ```
+
+If it does not, say the commands were not run and judge from the diff and the
+test results the PR provides. Never claim a command ran when it did not.
 
 A failure is at least **Important**. Quote the rule and the file.
 
