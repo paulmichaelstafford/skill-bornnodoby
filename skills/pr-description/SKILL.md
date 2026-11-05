@@ -50,6 +50,9 @@ a reason to stop unless marked.
 - `docs/architecture.generated.md` is current if imports, features, module
   dependencies or guard tests changed: run `docs/tools/architecture-report.sh`
   (it runs the guards first) and check the page is in the commit.
+- `docs/coverage.generated.md` must be regenerated and committed for **every**
+  PR: run `docs/tools/coverage-report.sh --base origin/dev`. `cert/tests` fails
+  when the committed page differs from the one the run produces.
 - A design change is a new design-plan version plus a changelog note; never an
   edit to an old version.
 
@@ -101,6 +104,7 @@ change does not touch the world; say why.
 - golden: <hash> / unchanged / not run
 - headless: <hashes> / not run
 - `docs/tools/architecture-report.sh` — page current
+- `docs/tools/coverage-report.sh --base origin/dev` — coverage page committed
 
 ## Guarded
 
