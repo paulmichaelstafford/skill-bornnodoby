@@ -50,4 +50,7 @@ VERDICT: PASS | FAIL
   Fix: the test or scene that would close it (advice, never an edit)
 ```
 
+**Critical and Important block.** A Minor finding is advice: list it, but it
+does not fail the verdict. PASS requires no Critical and no Important finding.
+
 Do not report style or architecture; the other reviews own those.

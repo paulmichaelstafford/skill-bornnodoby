@@ -49,5 +49,8 @@ VERDICT: PASS | FAIL
   Fix: the smallest change that would clear it (advice, never an edit)
 ```
 
+**Critical and Important block.** A Minor finding is advice: list it, but it
+does not fail the verdict. PASS requires no Critical and no Important finding.
+
 Do not report architecture boundaries (the architecture review owns them) or
 missing tests (the test review owns them).
