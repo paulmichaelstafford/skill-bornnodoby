@@ -46,6 +46,7 @@ A failure is at least **Important**. Quote the rule and the file.
 ```markdown
 VERDICT: PASS | FAIL
 - [Critical|Important|Minor] file:line — finding — evidence
+  Fix: the smallest change that would clear it (advice, never an edit)
 ```
 
 Do not report architecture boundaries (the architecture review owns them) or

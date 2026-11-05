@@ -61,6 +61,7 @@ Anything the two lists above do not clearly cover. When in doubt, escalate.
 ```markdown
 VERDICT: PASS | ESCALATE
 - [tightening|loosening|unknown] file:line — what changed — why it matters
+  Fix: the smallest change that makes it tightening (advice, never an edit)
 ```
 
 PASS only when every protected change is tightening, no test anywhere was

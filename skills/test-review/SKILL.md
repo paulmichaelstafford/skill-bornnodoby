@@ -47,6 +47,7 @@ about ten lines, no setup code in the test file, under a second a seed,
 ```markdown
 VERDICT: PASS | FAIL
 - [Critical|Important|Minor] file:line — finding — evidence (test name, coverage line, or rule)
+  Fix: the test or scene that would close it (advice, never an edit)
 ```
 
 Do not report style or architecture; the other reviews own those.
