@@ -116,7 +116,11 @@ seed, or "none".
 
 What was deferred, with the record or "wanted, not built" pointer. Omit the
 section when empty.
+
+<!-- pr-description: v1 -->
 ```
+
+The final line is the marker the description check looks for. Keep it.
 
 ## 4. Create the PR
 
@@ -124,6 +128,10 @@ section when empty.
 GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_personal" git push -u origin HEAD
 gh pr create --base dev --title "S<N>: <sentence>" --body-file <file>
 ```
+
+This skill is the only supported way to open a pull request. The body must
+carry the `pr-description` marker; without it, `cert/description` fails and the
+PR cannot merge.
 
 `gh` may not be installed; if it is not, write the title and body to a file and
 report the path instead of inventing another route. Do not create the PR when
