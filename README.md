@@ -42,16 +42,30 @@ where the config expects it.
    generator and treat a stale file as a finding.
 4. Commit and push.
 
-## Skills here
+## PR certificate skills
+
+These are the only skills the bornnobody gate loads. The workflow names them
+and pins this repository's commit in `.github/workflows/pr-dev.yml`; adding a
+skill here does not add it to the gate.
+
+| ID | Purpose |
+| --- | --- |
+| `pr-description` | Build a PR title and body from the branch diff: what, why, the Realism line, the verification actually run, and every guarded file touched |
+| `guard-change-review` | Read the protected-file diff and return PASS or ESCALATE: did this tighten the rules, or loosen them |
+| `code-quality-review` | detekt, ktlint, the style guards, suppressions, dead code, naming and comment rules |
+| `test-review` | Changed behaviour has a test, coverage of the changed lines, BDD conventions, no test deleted or disabled |
+
+## Manual review and design skills
+
+These are not loaded by the PR gate. A session or agent reads them by hand when
+the task matches; they are not certificates and cannot block or approve a PR.
 
 | ID | Used by | Purpose |
 | --- | --- | --- |
-| `pr-description` | bornnobody | Build a PR title and body from the branch diff: what, why, the Realism line, the verification actually run, and every guarded file touched |
-| `guard-change-review` | bornnobody | Read the protected-file diff and return PASS or ESCALATE: did this tighten the rules, or loosen them |
-| `code-quality-review` | bornnobody | detekt, ktlint, the style guards, suppressions, dead code, naming and comment rules |
-| `test-review` | bornnobody | Changed behaviour has a test, coverage of the changed lines, BDD conventions, no test deleted or disabled |
-| `fight-pose-review` | bornnobody | Review training/sparring frames for grounding, arm chains, blade and shield, timing and camera; propose pose changes, never contact-rule changes |
-| `golden-rules-review` | bornnobody | Compare a PR against `docs/golden-rules.md`: far/near/history parity, measured realism, the frame, no cheating and the knowledge rule; PASS or ESCALATE |
+| `model-review` | bornnobody | Feedback on a simulation model's claim, causal chain, evidence, edge cases, tests and documentation; no code edits |
+| `animation-review` | bornnobody | Review a client scene's grounding, joints, silhouettes, timing, props and camera; propose pose changes, never contact-rule changes |
+| `fight-pose-review` | bornnobody | Review the fighting part of training/sparring: guard, wind-up, parry/block, feint, riposte, blade path and two-man framing |
+| `golden-rules-review` | bornnobody | Legacy manual review against the golden rules; not in the current gate |
 
 The earlier `architecture-review` draft is deferred; the generated architecture
 page in the bornnobody repository (`docs/architecture.generated.md`, from
