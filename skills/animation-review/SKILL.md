@@ -32,6 +32,7 @@ Take frames at the moments that matter, not only the nicest frame.
 - One foot is planted while the body moves; the other steps.
 - The hips are over the support foot, not floating between both.
 - A step changes the feet before the torso arrives; the torso does not slide over still feet.
+- A blow, a lift or a shove also steps: the pose commits forward and settles back, rather than reaching from a frozen base.
 - The knees bend; a straight column reads as a mannequin.
 - A planted foot's box bottom is at the floor, not through it.
 - A carrying or working body leans into the load; it does not stay upright.
@@ -63,8 +64,10 @@ Take frames at the moments that matter, not only the nicest frame.
 ### 5. Props, layers and drawing
 
 - The hilt, shield, tool or load is attached to the hand/arm that holds it.
+- A hand, a crossguard, a pommel, a shield boss and a belt are cheap props that turn a box into a tool and a person. Hair
+  and a nose give the head a front; a dark patch at the feet grounds it.
 - Draw order: body, then the near arm/shield, then the weapon, then marks; the near side does not disappear.
-- A shield is a slab with an arm behind it; not a floating wall.
+- A shield is a slab with an arm behind it and a boss on its face; not a floating wall.
 - A mark, flash or trail is at the contact point, not the middle of the body.
 - The camera does not sit inside a body or a shield.
 
@@ -72,6 +75,8 @@ Take frames at the moments that matter, not only the nicest frame.
 
 - The body fits at the closest and farthest point of the motion.
 - The angle shows the motion's line; a motion straight at the camera reads as a dot.
+- **Follow the sword side, not the world.** A fixed world camera shows the man's back as he circles the post; a camera
+  anchored to his facing (or to the line between two men) keeps the weapon side near and the target beyond it.
 - A near body does not hide the far body's hands or weapon at the contact.
 - The HUD names the state without covering the figures.
 
@@ -82,7 +87,11 @@ Take frames at the moments that matter, not only the nicest frame.
 - A shield centred on the body's width, so its slab overlaps the torso.
 - A stride swing too small to read; the walk becomes a slide.
 - A torso that stays square through a cut, turn or lift.
-- A camera far enough that the action does not read at contact-sheet size.
+- A camera far enough that the action does not read at contact-sheet size, or a camera that shows a man's back because it
+  is anchored to the world rather than to his facing.
+- A 20 Hz pose drawn at 60 fps without interpolation: the fighter moves in three-frame jumps.
+- No shadow under the feet; the figure floats on the grass.
+- No hand at the hilt, no crossguard, no hair, no belt: a stack of boxes with no front or back.
 
 ## Body-intersection gate
 
@@ -106,7 +115,11 @@ Sort by visual impact. A limb through a body comes before a camera nudge.
 ## Rules
 
 - Never change the contact rule, the sweep, the damage or a test expectation to make a picture look better.
-- Pose data is in `TrainingShape.Geo`/`TrainingPose` or `BodyFrame`; prefer a named constant or a small pose function.
+- Pose data is in `TrainingShape.Geo`, `BladeKeys`, `TrainingBody`, `TrainingBlade`/`TrainingLimbs`, or `BodyFrame`;
+  prefer a named constant or a small pose function.
+- The drawing props in `FightProps` are not hit boxes. If a prop must stop a blade, it belongs in the pose and the sweep,
+  not in the drawing.
+- A shield at guard is a physical obstacle; if the picture shows it in front, the rule should not let the blade through.
 - No physics or ragdoll. The design deliberately has none; fix the pose, not the engine.
 - Re-capture after every change and compare the same timestamps.
 - Run the scene's tests after a pose change; a visual fix must not break the contact scenes.

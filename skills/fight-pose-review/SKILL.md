@@ -38,6 +38,11 @@ outcome or a decision rule.
 - The wind-up is readable before the blade travels; the travel is readable before the contact; the recovery is visible.
 - A cut traces an arc; a thrust stays on its line.
 - The hilt is at the sword hand at every sampled phase. A floating blade or a hilt inside the body is a Critical finding.
+- **The blade is one rigid length.** The tip is at hilt + direction × length at every phase; a wind-up that pulls the hilt
+  back while the tip stays on a circle of "reach" stretches the sword. A length that changes through the swing is a
+  Critical finding; `the blade keeps one length through the swing` is the gate.
+- **A landed blade stops at what it met.** The drawn tip is the action's recorded stop (body, parry blade or shield), not
+  the full point; a sword that comes out of a man's back is a Critical finding. `FightPose.drawnTip()` is the reader.
 - The blade line is the line the body aimed at; a blow that visibly goes wide or short is a miss, not a hit.
 - The training man's first blow comes from the guard he came to the post in; later blows may change guard first.
 
@@ -46,6 +51,8 @@ outcome or a decision rule.
 - The hit is at the point `Sweep` found, on the part it found; the mark is at that point.
 - A parry is a blade meeting a blade: the parry blade is across the incoming line, from the near side of the body, and is up in time.
 - A block is a shield meeting a blade on the line it covers; the shield arm stays behind the shield.
+- **A shield at guard is still a shield.** It covers the line it stands on, and a sword does not pass through it. Only a
+  committed parry makes the sword (not the shield) the answer to that line; the two are not the same defence.
 - A late parry visibly misses; a parry on the wrong line does not stop the blow.
 - A miss is visibly short or wide, and the recovery follows the miss.
 - Damage is seen after the contact, not before it.
@@ -72,14 +79,17 @@ outcome or a decision rule.
 ## Known fight failure modes
 
 - The guard and the wind-up are the same pose, so the blow is unreadable.
+- The blade stretches and shrinks because the tip is placed on a reach circle while the hilt moves; the sword is rubber.
 - The parry hilt is on the far side of the body, so the sword arm crosses the chest.
-- The shield is a large slab that hides the arm and the line.
+- The shield is a large slab that hides the arm and the line, or a slab the blade passes through.
 - Blades stay crossed at head height; the scene reads as a guard drill.
 - The contact mark is at the body's middle, not at the sweep point.
 - A miss and a hit have the same recovery, so the miss does not read.
 - A combination continues after a parry or block.
 - A feint's real blow repeats the feint's line.
-- The camera is too far or too side-on to show the blade's line.
+- A hit leaves no answer: no flinch, no recoil, no guard reset.
+- A man at the knockout line keeps fencing.
+- The camera is too far, too side-on, or behind the man, so the blade's line is hidden or the back is the view.
 
 ## Output
 
@@ -99,10 +109,13 @@ Sort by impact. A blade or contact error comes before a camera nudge.
 - Never change the contact rule, the sweep, the damage or a test expectation to make a picture look better.
 - Run `animation-review` first for grounding, joints, self-intersection and camera; this skill owns the fighting part.
 - The training/sparring BDD scenes enable `auditBodies`; if `PoseAudit` throws, fix the pose, not the audit.
-- Pose data is in `TrainingShape.Geo` and `TrainingPose`; prefer a named constant or a small pose function.
+- Pose data is in `TrainingShape.Geo`, `BladeKeys` and the `TrainingBody`/`TrainingBlade`/`TrainingLimbs` split; prefer a
+  named constant or a small pose function.
+- Keep the pose's full `bladeTip` for the sweep and the length test; clip only the drawn tip at `bladeStop`.
 - No physics or ragdoll. The design deliberately has none; fix the pose, not the engine.
 - Re-capture after every change and compare the same timestamps.
-- Run `TrainingScenesTest`, `SparringScenesTest` and the client renderer test after a change.
+- Run `TrainingScenesTest`, `SparringScenesTest` and the client renderer test after a change. The new gates include
+  the blade length, the step-in, the contact stop, the elbow, the legs, the flinch, the guard shield and the down state.
 
 ## Capture recipe
 

@@ -70,6 +70,21 @@ Look for:
 - Does the model hit a realism target, or is it only self-consistent?
 - What observation would falsify it? If nothing would, the model is not yet a model.
 
+### 3b. Check the model against its picture
+
+The client draws the same numbers the rule reads. Compare them:
+
+- Does the reach the brain measures equal the hand plus the blade the pose draws? A rule that measures 1.7 m while the
+  drawn sword reaches 1.6 m will miss at the top of its own measure band.
+- Does the blade keep one length, and does it stop at the body, blade or shield it met? A sword that stretches, or comes
+  out of a man's back, is a model and picture disagreeing.
+- Does the shield the pose holds in front of the body appear in the swept boxes? A shield that a blade passes through is
+  decoration, not a defence.
+- Does a man at the knockout line stop acting and go down, or does he keep fencing at zero health?
+- Does the HUD show the state the rule is in, or a stale or impossible value?
+
+A picture that lies about the rule is a modelling finding, not a drawing finding.
+
 ### 4. Check the behaviour
 
 Try the edges:
@@ -115,6 +130,10 @@ FINDINGS:
 - [Critical|Important|Minor] file:line — finding — evidence — why it matters
   Experiment: <the smallest observation that would settle it>
 
+A useful recent example: "the pose places the tip on a circle of `weapon.reach` while the hilt moves, so the blade
+stretches from 0.7 to 2.25 m through a swing; the contact sweep reads the same segment, so a blow's speed and its
+contact point are not the blow the picture shows. Experiment: sample the hilt-to-tip length at 40 phases of one action."
+
 QUESTIONS:
 - <a question the model does not answer>
 
@@ -136,4 +155,5 @@ EXPERIMENTS:
 - Do not edit code, config, tests or docs.
 - Do not approve a design question that is Paul's; state the question and the cost of each answer.
 - Do not review formatting, detekt, ktlint, test coverage, module imports or guard loosening; other skills own those.
-- Do not review animation or drawing; `animation-review` and `fight-pose-review` own those.
+- Do not review animation or drawing as such; `animation-review` and `fight-pose-review` own those. Do report when the
+  drawn picture and the rule disagree, because that is a model claim failing its own evidence.
