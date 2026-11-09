@@ -89,7 +89,12 @@ outcome or a decision rule.
 - A feint's real blow repeats the feint's line.
 - A hit leaves no answer: no flinch, no recoil, no guard reset.
 - A man at the knockout line keeps fencing.
-- The camera is too far, too side-on, or behind the man, so the blade's line is hidden or the back is the view.
+- A one-handed sword is held with both hands near the hilt in the guard and only one hand on the strike; the grip changes
+  between phases. A free hand stays at the hip, or both hands stay on a two-handed hilt.
+- A bout that ends (down, dead, broken) leaves the same crouched pose on screen for the rest of the video; the scene needs
+  a beat and a next bout or a cut.
+- The camera is too far, too side-on, or behind the man, so the blade's line is hidden or the back is the view. A camera
+  that follows the line's rotation hides the circling.
 
 ## Output
 

@@ -76,7 +76,11 @@ Take frames at the moments that matter, not only the nicest frame.
 - The body fits at the closest and farthest point of the motion.
 - The angle shows the motion's line; a motion straight at the camera reads as a dot.
 - **Follow the sword side, not the world.** A fixed world camera shows the man's back as he circles the post; a camera
-  anchored to his facing (or to the line between two men) keeps the weapon side near and the target beyond it.
+  anchored to his facing keeps the weapon side near and the target beyond it. But a camera that also follows the line's
+  **rotation** cancels the circling: the men stay in the same screen place and the only visible motion is the ground
+  sliding. Track the midpoint, not the line's yaw, when the circling is the thing the scene is showing.
+- **A finished bout must finish on screen.** When a man goes down, hold the result for a beat and start the next bout (or
+  cut), so a defeated pose is never the whole video. A crouched loser for twenty seconds is a frozen scene, not a fight.
 - A near body does not hide the far body's hands or weapon at the contact.
 - The HUD names the state without covering the figures.
 
@@ -92,6 +96,9 @@ Take frames at the moments that matter, not only the nicest frame.
 - A 20 Hz pose drawn at 60 fps without interpolation: the fighter moves in three-frame jumps.
 - No shadow under the feet; the figure floats on the grass.
 - No hand at the hilt, no crossguard, no hair, no belt: a stack of boxes with no front or back.
+- A one-handed sword shown with the off hand at the chest and the sword hand at the hilt; the eye reads a two-handed
+  grip, and then the off hand leaves for the strike. Keep the free hand at the hip, out and back with the blow.
+- A demo that loops a terminal pose (down, dead, broken) for the rest of the capture.
 
 ## Body-intersection gate
 

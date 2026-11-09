@@ -81,6 +81,7 @@ The client draws the same numbers the rule reads. Compare them:
 - Does the shield the pose holds in front of the body appear in the swept boxes? A shield that a blade passes through is
   decoration, not a defence.
 - Does a man at the knockout line stop acting and go down, or does he keep fencing at zero health?
+- If he does go down, does the scene hold the result and start the next bout, or does the same crouch stay on screen?
 - Does the HUD show the state the rule is in, or a stale or impossible value?
 
 A picture that lies about the rule is a modelling finding, not a drawing finding.
