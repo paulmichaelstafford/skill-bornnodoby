@@ -50,6 +50,7 @@ where the config expects it.
 | `guard-change-review` | bornnobody | Read the protected-file diff and return PASS or ESCALATE: did this tighten the rules, or loosen them |
 | `code-quality-review` | bornnobody | detekt, ktlint, the style guards, suppressions, dead code, naming and comment rules |
 | `test-review` | bornnobody | Changed behaviour has a test, coverage of the changed lines, BDD conventions, no test deleted or disabled |
+| `fight-pose-review` | bornnobody | Review training/sparring frames for grounding, arm chains, blade and shield, timing and camera; propose pose changes, never contact-rule changes |
 | `golden-rules-review` | bornnobody | Compare a PR against `docs/golden-rules.md`: far/near/history parity, measured realism, the frame, no cheating and the knowledge rule; PASS or ESCALATE |
 
 The earlier `architecture-review` draft is deferred; the generated architecture
