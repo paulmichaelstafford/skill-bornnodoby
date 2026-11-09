@@ -7,6 +7,8 @@ description: Review a Born Nobody client scene's animation and movement for weig
 
 ## Purpose
 
+This is a manual review skill, not a PR certificate. The bornnobody gate does not load it; the gate names its skills and pins a commit in `.github/workflows/pr-dev.yml`.
+
 Make the drawn bodies read as bodies: weight on the ground, joints that bend, a silhouette that says what the person is doing, and
 a camera that shows it. This skill covers any client scene — walking, working, carrying, fighting, a crowd. The fighting-specific
 readability (guard, wind-up, parry, riposte) is `fight-pose-review`; combat contact is not this skill's concern.

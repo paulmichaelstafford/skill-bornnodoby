@@ -7,6 +7,8 @@ description: Review a Born Nobody simulation model, rule or mechanism for cohere
 
 ## Purpose
 
+This is a manual review skill, not a PR certificate. The bornnobody gate does not load it; the gate names its skills and pins a commit in `.github/workflows/pr-dev.yml`.
+
 A model is a rule or system that turns state into a decision or a number: a fight's blow, a household's meal, a leader's raid, a
 price, a route, a birth. Review it as **a claim about the world** and as **a contract with the rest of the simulation**, not as a
 piece of code style.

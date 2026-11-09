@@ -7,6 +7,8 @@ description: Review the fighting part of a Born Nobody training or sparring scen
 
 ## Purpose
 
+This is a manual review skill, not a PR certificate. The bornnobody gate does not load it; the gate names its skills and pins a commit in `.github/workflows/pr-dev.yml`.
+
 Make the fighting read as intent, commitment and contact: a guard that says what can come, a wind-up that can be read, a blade that
 travels to the line the body aimed at, a parry or block that meets it, and a recovery that is a choice. Body grounding, joint
 chains, silhouettes and camera belong to `animation-review`; run that first. If the body is not grounded, this review cannot save
