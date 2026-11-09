@@ -85,6 +85,7 @@ Check these first; each has already happened in this project.
 - The feet swung too little to read as a step; the walk looked like sliding.
 - The torso stayed square while the blade travelled.
 - The camera sat far enough that the action did not read at contact-sheet size.
+- A `PoseBox` half-size was in the wrong axis order: the pose axes are forward, up, right, so a torso's halves are (depth, height, width), not (width, height, depth).
 
 ## Output
 
@@ -108,6 +109,7 @@ Sort by visual impact. Do not put a cosmetic issue above a limb through a body.
 - No physics or ragdoll. The design deliberately has none; fix the pose, not the engine.
 - Re-capture after every change and compare the same timestamps.
 - Run the training and sparring tests after a pose change; a visual fix must not break the contact scenes.
+- The BDD scenes enable the fight's `auditBodies` flag. `PoseAudit` then throws if an arm box crosses the torso, head or legs, or if two men's boxes cross. If it throws, fix the pose, not the audit. It is a test gate, not collision response, and the client leaves it off.
 
 ## Capture recipe
 
