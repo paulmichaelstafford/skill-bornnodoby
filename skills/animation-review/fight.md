@@ -14,18 +14,19 @@ It reviews what the fight **looks like**. It never changes `Sweep`, damage, a de
 
 ## 1. The style and the guard
 
-A weapon fights in styles, not in a single stance, and a style is a tradition before it is a technique. A knight and a ninja
-can hold the same sword and must not stand alike. A style is a stance, a guard and a trade: the footwork, the line the blade
-holds, the blow it leads to and the line it gives up. The sword has two, and its two guards are those traditions:
+A weapon fights in styles, and a style is a culture's way of fighting before it is a technique. European sword fighting has the
+German Longsword; Japanese sword fighting has Kenjutsu. The same weapon family can hold both, and the two must not stand
+alike. A style is a stance, a grip, a footwork and a trade: the line the blade holds, the blow it leads to and the line it
+gives up.
 
-- **knight** (the high guard): tall and bladed, sword hand at the shoulder, point above the opponent's head; the cut is
-  quick, the thrust is slow, the low line is open.
-- **ninja** (the low guard): low and side-on, sword hand back at the hip, point down and forward; the thrust is quick, a cut
-  must rise, the high line is open. The free hand leads.
+- **German Longsword**: tall and bladed, both hands together on the hilt, the high guard above the head; long cuts and
+  thrusts, and a step into the blow.
+- **Kenjutsu**: lower and side-on, both hands on the hilt, the blade forward at chest height; the first cut is decisive, the
+  thrust is rare.
 
-The stance carries the style: the lead foot, the hips and the bladed torso say the line before the sword does. The two must
-not be the same silhouette with the hand moved; the feet, height, blade line and free hand all change. A style change is a
-committed action, and the new style is set at the change's end.
+The stance carries the style: the lead foot, the hips and the bladed torso say the line before the sword does. The styles must
+not be the same silhouette with the hand moved; the feet, height, grip, blade line and free hand all change. A style change
+is a committed action, and the new style is set at the change's end.
 
 The stance carries the style: the lead foot, the hips and the bladed torso say the line before the sword does. The two must
 not be the same silhouette with the hand moved; the feet, height and blade line all change. A style change is a committed
