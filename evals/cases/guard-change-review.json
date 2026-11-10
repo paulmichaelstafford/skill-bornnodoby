@@ -1,0 +1,169 @@
+{
+  "skill": "guard-change-review",
+  "cases": [
+    {
+      "name": "adds-guard-test-passes",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "PASS: a new guard test is a tightening change, even though the file is guarded.",
+      "edits": [
+        {
+          "op": "insert_after",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/CodeStyleGuardTest.kt",
+          "anchor": "class CodeStyleGuardTest {",
+          "text": "    @Test fun `no source names a commit hash`() {\n        val found = mainSources().filter { Regex(\"\\\\b[0-9a-f]{7,40}\\\\b\").containsMatchIn(it.readText()) }\n        assertTrue(found.isEmpty(), \"a source names a commit hash: $found\")\n    }"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is PASS", "kind": "regex", "value": "^VERDICT: PASS\\b" },
+        { "text": "The new guard test is named as the tightening change", "kind": "contains", "value": "CodeStyleGuardTest.kt" }
+      ]
+    },
+    {
+      "name": "disables-test-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: an added @Disabled disables a test, which is loosening.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/CodeStyleGuardTest.kt",
+          "old": "import kotlin.test.assertTrue\n",
+          "new": "import kotlin.test.assertTrue\nimport org.junit.jupiter.api.Disabled\n"
+        },
+        {
+          "op": "replace",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/CodeStyleGuardTest.kt",
+          "old": "    @Test fun `a column is written only in its owner file`() {",
+          "new": "    @Disabled(\"Found 10 November 2026: the guard fails on generated sources; rebuild with a source filter\")\n    @Test fun `a column is written only in its owner file`() {"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        { "text": "The disabled test is named", "kind": "contains", "value": "@Disabled" },
+        { "text": "The guard file is named", "kind": "contains", "value": "CodeStyleGuardTest.kt" }
+      ]
+    },
+    {
+      "name": "shrinks-allow-list-passes",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "PASS: deleting a line from a shrink-only allow list is a tightening change.",
+      "edits": [
+        {
+          "op": "remove_line",
+          "path": "sim-scenario/src/test/resources/style/big-files.txt",
+          "line": "Paths3.kt 751"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is PASS", "kind": "regex", "value": "^VERDICT: PASS\\b" }
+      ]
+    },
+    {
+      "name": "widens-allow-list-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: adding a line to a shrink-only allow list is loosening.",
+      "edits": [
+        {
+          "op": "insert_after",
+          "path": "sim-scenario/src/test/resources/style/big-files.txt",
+          "anchor": "Paths3.kt 751",
+          "text": "DuelFigures.kt 900"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        {
+          "text": "The widened allow list is named",
+          "kind": "contains_any",
+          "value": ["big-files.txt", "DuelFigures.kt"]
+        }
+      ]
+    },
+    {
+      "name": "renames-unprotected-test-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: renaming a test is loosening even though the file is not on the guarded list.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/FamineBddTest.kt",
+          "old": "    @Test fun `a failed harvest is logged at the year's turn`() = inEverySeed(3) {",
+          "new": "    @Test fun `a bad harvest is recorded`() = inEverySeed(3) {"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        { "text": "The renamed test is named", "kind": "contains", "value": "FamineBddTest.kt" }
+      ]
+    },
+    {
+      "name": "weakens-assertion-beside-new-test-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: the new test does not cancel the assertion weakened in the same file.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/CodeStyleGuardTest.kt",
+          "old": "        assertTrue(wrong.isEmpty(), \"writes outside the owner file (make one call to the owner's action):\\n\" + wrong.joinToString(\"\\n\"))",
+          "new": "        assertTrue(wrong.size >= 0, \"writes outside the owner file\")"
+        },
+        {
+          "op": "insert_after",
+          "path": "sim-scenario/src/test/kotlin/bornnobody/scenario/CodeStyleGuardTest.kt",
+          "anchor": "class CodeStyleGuardTest {",
+          "text": "    @Test fun `no source names a commit hash`() {\n        val found = mainSources().filter { Regex(\"\\\\b[0-9a-f]{7,40}\\\\b\").containsMatchIn(it.readText()) }\n        assertTrue(found.isEmpty(), \"a source names a commit hash: $found\")\n    }"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        { "text": "The weakened assertion is named", "kind": "contains_any", "value": ["assert", "weaken"] },
+        { "text": "The guard file is named", "kind": "contains", "value": "CodeStyleGuardTest.kt" }
+      ]
+    },
+    {
+      "name": "ci-continue-on-error-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: continue-on-error in the CI workflow weakens the test check.",
+      "edits": [
+        {
+          "op": "insert_after",
+          "path": ".github/workflows/pr-dev.yml",
+          "anchor": "        run: ./gradlew test",
+          "text": "        continue-on-error: true"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        {
+          "text": "The CI weakening is named",
+          "kind": "contains_any",
+          "value": ["continue-on-error", "pr-dev.yml"]
+        }
+      ]
+    },
+    {
+      "name": "edits-guarded-paths-escalates",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "ESCALATE: any change to the protected-path list itself needs Paul.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "docs/guarded-paths.txt",
+          "old": "full    docs/guarded-paths.txt",
+          "new": "full    docs/guarded-paths.txt\nfull    docs/example-guard.txt"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is ESCALATE", "kind": "regex", "value": "^VERDICT: ESCALATE\\b" },
+        { "text": "The protected-path list is named", "kind": "contains", "value": "guarded-paths.txt" }
+      ]
+    }
+  ]
+}

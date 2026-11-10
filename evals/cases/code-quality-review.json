@@ -1,0 +1,76 @@
+{
+  "skill": "code-quality-review",
+  "cases": [
+    {
+      "name": "clean-extraction-passes",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "PASS: the refactor adds a named local and keeps the rule and its style.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "sim-verbs/src/main/kotlin/bornnobody/verb/food/api/Famines.kt",
+          "old": "    fun rationDays(chosen: OptionId, earlyDays: Int): Int = if (chosen.raw == FamineWords.RATION && earlyDays > 0) earlyDays else 0",
+          "new": "    fun rationDays(chosen: OptionId, earlyDays: Int): Int {\n        val rationed = chosen.raw == FamineWords.RATION\n        return if (rationed && earlyDays > 0) earlyDays else 0\n    }"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is PASS", "kind": "regex", "value": "^VERDICT: PASS\\b" }
+      ]
+    },
+    {
+      "name": "suppression-fails",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "FAIL: a new @Suppress is banned, whatever it silences.",
+      "edits": [
+        {
+          "op": "replace",
+          "path": "sim-verbs/src/main/kotlin/bornnobody/verb/food/api/Famines.kt",
+          "old": "    fun rationDays(chosen: OptionId, earlyDays: Int): Int = if (chosen.raw == FamineWords.RATION && earlyDays > 0) earlyDays else 0",
+          "new": "    @Suppress(\"UNUSED_PARAMETER\")\n    fun rationDays(chosen: OptionId, earlyDays: Int): Int = if (chosen.raw == FamineWords.RATION && earlyDays > 0) earlyDays else 0"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is FAIL", "kind": "regex", "value": "^VERDICT: FAIL\\b" },
+        { "text": "The suppression is named", "kind": "contains", "value": "@Suppress" }
+      ]
+    },
+    {
+      "name": "todo-without-wanted-fails",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "FAIL: a TODO with no 'wanted, not built' line is a finding.",
+      "edits": [
+        {
+          "op": "insert_after",
+          "path": "sim-verbs/src/main/kotlin/bornnobody/verb/food/api/Famines.kt",
+          "anchor": "object Famines {",
+          "text": "    // TODO: replace the when with a table when a fourth reserve pick is added"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is FAIL", "kind": "regex", "value": "^VERDICT: FAIL\\b" },
+        { "text": "The TODO is named", "kind": "contains", "value": "TODO" }
+      ]
+    },
+    {
+      "name": "math-in-sim-fails",
+      "mode": "review",
+      "prompt": "Review this pull request.",
+      "expected": "FAIL: Math is banned in sim code; StrictMath is the rule.",
+      "edits": [
+        {
+          "op": "insert_after",
+          "path": "sim-verbs/src/main/kotlin/bornnobody/verb/food/api/Famines.kt",
+          "anchor": "object Famines {",
+          "text": "    /** The squared distance between two picks, for the caller's spread. */\n    private fun spread(a: Int, b: Int): Double = Math.sqrt((a * a + b * b).toDouble())"
+        }
+      ],
+      "graders": [
+        { "text": "The verdict is FAIL", "kind": "regex", "value": "^VERDICT: FAIL\\b" },
+        { "text": "The Math call is named", "kind": "contains", "value": "Math" }
+      ]
+    }
+  ]
+}

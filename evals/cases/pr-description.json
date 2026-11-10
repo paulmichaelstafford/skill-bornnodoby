@@ -1,0 +1,78 @@
+{
+  "skill": "pr-description",
+  "cases": [
+    {
+      "name": "writes-body-from-doc-change",
+      "mode": "branch",
+      "prompt": "Open the pull request.",
+      "expected": "A S42 title, every required body section, an honest 'not run' verification, and the marker.",
+      "commit": "S42: define the famine stretch in the glossary",
+      "edits": [
+        {
+          "op": "append",
+          "path": "docs/glossary.md",
+          "text": "| FamineStretch | The days a ration stretches the store past the calendar's line, chosen by the leader. | |\n"
+        }
+      ],
+      "graders": [
+        { "text": "The title carries the commit's S number", "kind": "regex", "value": "^[`*_>#\\s-]*S42:" },
+        { "text": "The body has What changed", "kind": "contains", "value": "## What changed" },
+        { "text": "The body has Why", "kind": "contains", "value": "## Why" },
+        { "text": "The body has How", "kind": "contains", "value": "## How" },
+        { "text": "The body has Realism", "kind": "contains", "value": "## Realism" },
+        { "text": "The body has Verification", "kind": "contains", "value": "## Verification" },
+        { "text": "The body has Guarded", "kind": "contains", "value": "## Guarded" },
+        { "text": "The body has Risks and rollout", "kind": "contains", "value": "## Risks and rollout" },
+        { "text": "The body carries the pr-description marker", "kind": "contains", "value": "<!-- pr-description: v1 -->" },
+        { "text": "The verification says the checks were not run", "kind": "contains", "value": "not run" }
+      ]
+    },
+    {
+      "name": "names-guarded-config-change",
+      "mode": "branch",
+      "prompt": "Open the pull request.",
+      "expected": "An S43 title and a Guarded section that names the guarded detekt config.",
+      "commit": "S43: document the detekt threshold",
+      "edits": [
+        {
+          "op": "append",
+          "path": "docs/glossary.md",
+          "text": "| DetektThreshold | The per-rule limit in `config/detekt.yml`; a change to it is a guarded change. | |\n"
+        },
+        {
+          "op": "insert_after",
+          "path": "config/detekt.yml",
+          "anchor": "# No type resolution (the plain `detekt` task): what a type-resolving rule would hold is a source scan in CodeStyleGuardTest.",
+          "text": "# The thresholds below are reviewed with the guard rules."
+        }
+      ],
+      "graders": [
+        { "text": "The title carries the commit's S number", "kind": "regex", "value": "^[`*_>#\\s-]*S43:" },
+        { "text": "The body has a Guarded section", "kind": "contains", "value": "## Guarded" },
+        { "text": "The guarded config file is named", "kind": "contains", "value": "config/detekt.yml" }
+      ]
+    },
+    {
+      "name": "refuses-to-invent-a-number",
+      "mode": "branch",
+      "prompt": "Open the pull request.",
+      "expected": "No S number is invented; the skill stops and asks for the number.",
+      "commit": "clarify the famine glossary",
+      "edits": [
+        {
+          "op": "append",
+          "path": "docs/glossary.md",
+          "text": "| FamineRation | The leader's pick for how long the store is stretched. | |\n"
+        }
+      ],
+      "graders": [
+        { "text": "No title S number is invented", "kind": "regex_not", "value": "^[`*_>#\\s-]*S\\d+:" },
+        {
+          "text": "The missing number is raised with the user",
+          "kind": "contains_any",
+          "value": ["number", "ask"]
+        }
+      ]
+    }
+  ]
+}
