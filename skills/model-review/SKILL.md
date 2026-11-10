@@ -76,6 +76,9 @@ The client draws the same numbers the rule reads. Compare them:
 
 - Does the reach the brain measures equal the hand plus the blade the pose draws? A rule that measures 1.7 m while the
   drawn sword reaches 1.6 m will miss at the top of its own measure band.
+- Is every key hand inside the arm's reach? A parry at knee height puts the hand 1 m below the shoulder; the two-bone IK
+  clamps the reach but the drawn forearm runs to the real hand, and the arm stretches to 0.8 m. A low line is a block
+  with a crouch or a step, not a sword parry.
 - Does the blade keep one length, and does it stop at the body, blade or shield it met? A sword that stretches, or comes
   out of a man's back, is a model and picture disagreeing.
 - Does the shield the pose holds in front of the body appear in the swept boxes? A shield that a blade passes through is

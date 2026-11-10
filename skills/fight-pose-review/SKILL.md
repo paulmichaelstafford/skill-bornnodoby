@@ -53,6 +53,11 @@ outcome or a decision rule.
 - A block is a shield meeting a blade on the line it covers; the shield arm stays behind the shield.
 - **A shield at guard is still a shield.** It covers the line it stands on, and a sword does not pass through it. Only a
   committed parry makes the sword (not the shield) the answer to that line; the two are not the same defence.
+- **A defence sets; it does not teleport.** The parry blade and the shield ease from the guard pose to the parry line or
+  block height over the action's set time. A shield that jumps from the hip to the line in one frame is a snap, not a
+  block.
+- **A low line is not a sword parry.** The hand cannot reach knee height from the shoulder; the parry is high or middle,
+  a low line is a shield block with a crouch (or a step). A low parry is a stretched forearm.
 - A late parry visibly misses; a parry on the wrong line does not stop the blow.
 - A miss is visibly short or wide, and the recovery follows the miss.
 - Damage is seen after the contact, not before it.

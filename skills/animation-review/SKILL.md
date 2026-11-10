@@ -44,6 +44,11 @@ Take frames at the moments that matter, not only the nicest frame.
 - The shoulder sits outside the torso silhouette; the hip sits inside it but the thigh leaves it.
 - The hand is on the hilt, tool or load; the shield is on the forearm.
 - No part intersects another. This is a pose problem: Born Nobody's fight rule has no body self-collision.
+- **A bone does not stretch.** A two-bone IK clamps the reach but a naive segment still runs from the elbow to the real
+  hand; when the key hand is beyond the reach, the forearm grows. The BDD's `auditLengths` flag checks the upper arm,
+  forearm, shield arm, head, neck, torso, feet and blade against the table; if it throws, move the key hand inside the
+  reach, do not widen the tolerance.
+- A small cap at an elbow or knee turns a solved joint into a bend instead of a notch; it is a drawing prop, not a hit box.
 
 ### 3. The body and the silhouette
 
