@@ -1,6 +1,6 @@
 ---
 name: Animation Review
-description: Review a Born Nobody client scene's animation and movement for weight, grounding, joints, silhouettes, timing, props, draw order and camera. Use whenever a scene looks stiff, floaty, sliding, disconnected, a limb passes through a body, a foot skates, a pose is unreadable, or the user asks to make a walk, work, crowd, training or sparring scene look like real bodies. It reviews poses and drawing, never combat rules or simulation outcomes.
+description: Review a Born Nobody client scene's animation and movement for weight, grounding, joints, silhouettes, timing, props, draw order and camera, and for a training or sparring scene the fight itself — guard, wind-up, travel, recovery, parry and block by geometry, feint, riposte, blade path, contact and two-man framing. Use whenever a scene looks stiff, floaty, sliding, disconnected, a limb passes through a body, a foot skates, a pose is unreadable, a blow or parry does not read, a combination does not flow, or the user asks to make a walk, work, crowd, training or sparring scene look like real bodies. It reviews poses and drawing, never the contact rule or simulation outcomes.
 ---
 
 # Animation review
@@ -10,8 +10,9 @@ description: Review a Born Nobody client scene's animation and movement for weig
 This is a manual review skill, not a PR certificate. The bornnobody gate does not load it; the gate names its skills and pins a commit in `.github/workflows/pr-dev.yml`.
 
 Make the drawn bodies read as bodies: weight on the ground, joints that bend, a silhouette that says what the person is doing, and
-a camera that shows it. This skill covers any client scene — walking, working, carrying, fighting, a crowd. The fighting-specific
-readability (guard, wind-up, parry, riposte) is `fight-pose-review`; combat contact is not this skill's concern.
+a camera that shows it. This skill covers any client scene — walking, working, carrying, fighting, a crowd. A training or sparring
+scene continues into the fight chapter, `fight.md`, after the body checks here; a fight is a genre of animation, not a second
+review. Combat contact is neither chapter's to change: the rule is `model-review`'s and the sweep's.
 
 Report findings and propose changes. Do not edit code, tests or contact logic.
 
@@ -89,6 +90,12 @@ Take frames at the moments that matter, not only the nicest frame.
 - A near body does not hide the far body's hands or weapon at the contact.
 - The HUD names the state without covering the figures.
 
+### 7. The fight
+
+A training or sparring scene is a body scene before it is a fight. After 1–6, run the fight chapter in `fight.md`: the guard,
+the blow, the contact, the intent and the two men. If a body floats, slides or stretches, fix that first; a well-timed
+exchange on a broken body still reads as a puppet.
+
 ## Known failure modes
 
 - A `PoseBox` half-size in the wrong axis order: the pose axes are forward, up, right, so a torso's halves are (depth, height, width).
@@ -105,11 +112,12 @@ Take frames at the moments that matter, not only the nicest frame.
   grip, and then the off hand leaves for the strike. Keep the free hand at the hip, out and back with the blow.
 - A demo that loops a terminal pose (down, dead, broken) for the rest of the capture.
 
-## Body-intersection gate
+## Pose gates
 
 Born Nobody's training and sparring BDD tests enable the fight's `auditBodies` flag. `PoseAudit` then throws when an arm box
-crosses the torso, head or legs, or when two men's boxes cross. If it throws, fix the pose; do not weaken the audit. It is a
-test gate, not collision response, and the client leaves it off.
+crosses the torso, head or legs, or when two men's boxes cross. The same scenes enable `auditLengths` (`PoseLengths`), which
+throws when a bone, the shield arm or the blade leaves its table length. Both are test gates, not collision response, and the
+client leaves them off. If one throws, fix the pose; do not weaken the audit.
 
 ## Output
 
@@ -135,6 +143,7 @@ Sort by visual impact. A limb through a body comes before a camera nudge.
 - No physics or ragdoll. The design deliberately has none; fix the pose, not the engine.
 - Re-capture after every change and compare the same timestamps.
 - Run the scene's tests after a pose change; a visual fix must not break the contact scenes.
+- The fight chapter's rules in `fight.md` apply to a training or sparring scene as well.
 - Do not judge combat decisions, model realism or code quality; other skills own those.
 
 ## Capture recipe
@@ -153,6 +162,9 @@ DISPLAY=:99 gst-launch-1.0 -q ximagesrc use-damage=0 num-buffers=360 \
   ! webmmux ! filesink location=/tmp/opencode/scene.webm
 wait $CLIENT || true
 ```
+
+Use `--sparring=1` for the two-man scene. The training scene has two review cameras: add `--training-view=side` for both
+figures, or `--training-view=front` for the man's grip and swing.
 
 Frames and contact sheet, where `SKILL_DIR` is this skill's directory:
 

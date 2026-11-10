@@ -63,8 +63,7 @@ the task matches; they are not certificates and cannot block or approve a PR.
 | ID | Used by | Purpose |
 | --- | --- | --- |
 | `model-review` | bornnobody | Feedback on a simulation model's claim, causal chain, evidence, edge cases, tests and documentation; no code edits |
-| `animation-review` | bornnobody | Review a client scene's grounding, joints, silhouettes, timing, props and camera; propose pose changes, never contact-rule changes |
-| `fight-pose-review` | bornnobody | Review the fighting part of training/sparring: guard, wind-up, parry/block, feint, riposte, blade path and two-man framing |
+| `animation-review` | bornnobody | Review a client scene's animation — grounding, joints, silhouettes, timing, props, camera — and, in `fight.md`, the fight itself: guard, wind-up, parry/block, feint, riposte, blade path, contact and two-man framing; propose pose changes, never contact-rule changes |
 | `golden-rules-review` | bornnobody | Legacy manual review against the golden rules; not in the current gate |
 
 The earlier `architecture-review` draft is deferred; the generated architecture

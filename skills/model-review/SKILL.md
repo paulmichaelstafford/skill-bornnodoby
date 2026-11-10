@@ -159,5 +159,5 @@ EXPERIMENTS:
 - Do not edit code, config, tests or docs.
 - Do not approve a design question that is Paul's; state the question and the cost of each answer.
 - Do not review formatting, detekt, ktlint, test coverage, module imports or guard loosening; other skills own those.
-- Do not review animation or drawing as such; `animation-review` and `fight-pose-review` own those. Do report when the
+- Do not review animation or drawing as such; `animation-review` owns those, its `fight.md` the fighting part. Do report when the
   drawn picture and the rule disagree, because that is a model claim failing its own evidence.
