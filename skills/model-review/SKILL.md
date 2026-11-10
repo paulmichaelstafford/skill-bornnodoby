@@ -1,5 +1,5 @@
 ---
-name: Model Review
+name: model-review
 description: Review a Born Nobody simulation model, rule or mechanism for coherence, causality, realism and evidence — not code style, test coverage or module boundaries. Use whenever the user asks whether a model makes sense, asks for feedback on a model, reviews a PR that changes a rule or mechanism, compares a near rule with its far twin, or wants the economy, society, war, trade, movement, fight or any other model judged against the world it claims to simulate. Report findings and experiments; never edit the code.
 ---
 

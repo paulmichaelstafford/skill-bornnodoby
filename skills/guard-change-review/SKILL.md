@@ -1,5 +1,5 @@
 ---
-name: Guard Change Review
+name: guard-change-review
 description: Review a pull request's changes to bornnobody's protected files — guard tests, style lists, build, CI, and any deleted or disabled test — and decide whether the change tightens the rules or loosens them. Use whenever a PR touches a guarded path, removes a test, disables a check, or lowers coverage.
 ---
 

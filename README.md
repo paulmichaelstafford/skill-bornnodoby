@@ -7,8 +7,10 @@ other projects too.
 
 ```
 skills/
-└── architecture-review/
-    └── SKILL.md
+└── <skill-id>/
+    ├── SKILL.md
+    ├── references/
+    └── scripts/
 ```
 
 One directory per skill, each with a `SKILL.md`. Supporting files (scripts,
@@ -36,7 +38,9 @@ where the config expects it.
 ## Adding a skill
 
 1. Create `skills/<id>/SKILL.md` with `name` and a specific `description` —
-   the description is what the model sees before loading the skill.
+   the description is what the model sees before loading the skill. Set `name`
+   to the same lowercase kebab-case ID: OpenCode treats it as a display label,
+   but Claude's skill format requires the lowercase form.
 2. Keep one concern per skill, and say what it must not judge.
 3. If the skill depends on a generated file in the target repository, name the
    generator and treat a stale file as a finding.

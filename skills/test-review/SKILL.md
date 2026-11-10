@@ -1,5 +1,5 @@
 ---
-name: Test Review
+name: test-review
 description: Review whether a pull request tests what it changed — coverage of the changed lines, the BDD scene conventions, history-to-far scenes for a sim change, the golden and headless checks, and any test removed or skipped. Use when a PR is opened, or when asked to review tests.
 ---
 

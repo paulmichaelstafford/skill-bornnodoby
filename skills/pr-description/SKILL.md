@@ -1,5 +1,5 @@
 ---
-name: PR Description
+name: pr-description
 description: Build a pull request title and body for bornnobody from the branch diff — what changed, why, the required Realism line, and the verification actually run. Use when opening a PR to dev, or when asked to write or check a PR description.
 ---
 

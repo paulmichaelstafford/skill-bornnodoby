@@ -1,5 +1,5 @@
 ---
-name: Code Quality Review
+name: code-quality-review
 description: Review a pull request's diff for bornnobody's code quality — detekt and ktlint, the style guards, suppressions, dead code, naming, and the comment rules. Use when a PR is opened, or when asked to review code quality.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Golden Rules Review
+name: golden-rules-review
 description: Review a pull request's diff against Born Nobody's four golden rules and the knowledge rule — far/near/history parity, measured realism, the 60 fps frame, no cheating, and no knowledge without a carrier. Use when a PR is opened, or when asked to review against the golden rules.
 ---
 
