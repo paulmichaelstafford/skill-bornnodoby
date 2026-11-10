@@ -12,9 +12,25 @@ It reviews what the fight **looks like**. It never changes `Sweep`, damage, a de
 - The HUD: guard, phase, blows, hits, gap, health, training level.
 - The contact points from `SweepHit` and the scene's marks.
 
-## 1. The guard
+## 1. The style and the guard
 
-- The stance carries the guard: the lead foot, the hips and the bladed torso say the line before the sword does.
+A weapon fights in styles, not in a single stance, and a style is a tradition before it is a technique. A knight and a ninja
+can hold the same sword and must not stand alike. A style is a stance, a guard and a trade: the footwork, the line the blade
+holds, the blow it leads to and the line it gives up. The sword has two, and its two guards are those traditions:
+
+- **knight** (the high guard): tall and bladed, sword hand at the shoulder, point above the opponent's head; the cut is
+  quick, the thrust is slow, the low line is open.
+- **ninja** (the low guard): low and side-on, sword hand back at the hip, point down and forward; the thrust is quick, a cut
+  must rise, the high line is open. The free hand leads.
+
+The stance carries the style: the lead foot, the hips and the bladed torso say the line before the sword does. The two must
+not be the same silhouette with the hand moved; the feet, height, blade line and free hand all change. A style change is a
+committed action, and the new style is set at the change's end.
+
+The stance carries the style: the lead foot, the hips and the bladed torso say the line before the sword does. The two must
+not be the same silhouette with the hand moved; the feet, height and blade line all change. A style change is a committed
+action, and the new style is set at the change's end.
+
 - The guard is readable before the blow: high, low, centre, forward, one.
 - A guard change is a committed action; it takes time and the pose shows the change.
 - A guard is a trade, not a decoration: the blows it leads to are quicker; a low guard's cut has to rise.
